@@ -1,0 +1,16 @@
+{
+  "use-cscope": null,
+  "tag-dir": null,
+  "filter": {
+    "php-file-ext-list": [
+      "php"
+    ],
+    "php-path-list": [
+      "./app",
+      "./database",
+      "./vendor/laravel/framework/src/Illuminate",
+      "./vendor/dingo"
+    ],
+    "php-path-list-without-subdir": []
+  }
+}

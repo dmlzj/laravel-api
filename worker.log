@@ -1,0 +1,4 @@
+[2020-03-16 12:22:05][GBuDpwCqYB3Sl5LFszQwZFFE2VTdYVs1] Processing: App\Jobs\UserTest
+[2020-03-16 12:22:05][GBuDpwCqYB3Sl5LFszQwZFFE2VTdYVs1] Processed:  App\Jobs\UserTest
+[2020-03-16 12:22:59][gvX1OzWe40VtXkSCycEG83GPFH6lHvn1] Processing: App\Listeners\UserListener
+[2020-03-16 12:22:59][gvX1OzWe40VtXkSCycEG83GPFH6lHvn1] Processed:  App\Listeners\UserListener

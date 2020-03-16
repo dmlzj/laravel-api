@@ -21,9 +21,10 @@ class UserRequest extends FormRequest
         case 'POST':
         {
             return [
-                'name' => ['required', 'max:50', 'unique:users,name'],
+                'name' => ['required', 'max:50'],
+                // 'name' => ['required', 'max:50', 'unique:users,name'],
                 'password' => ['required', 'max:50', 'min:6', 'confirmed'],
-                'password_confirm' => ['required', 'same:password']
+                'password_confirmation' => ['required', 'same:password']
             ];
         }
         case 'PUT':

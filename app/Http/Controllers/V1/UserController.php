@@ -19,7 +19,7 @@ class UserController extends Controller
             ->allowedFilters('name')
                   ->allowedFields(['id', 'name'])
                   ->get()->toArray();
-        return $this->response->array($users);
+        return $this->success($users);
     }
 
     public function show($id) {
@@ -28,7 +28,7 @@ class UserController extends Controller
         $users = QueryBuilder::for($query)
             ->allowedFields(['id', 'name'])
                   ->get();
-        return $users[0];
+        return $this->success($users[0]);
     }
 
     public function update(Request $request, $id) {
@@ -37,18 +37,11 @@ class UserController extends Controller
     public function register(UserRequest $request) {
         $name = $request->name;
         $password = $request->password;
-        $check_password = $request->check_password;
-        // dd($password, $check_password);
-        if (!$password || !$name) {
-            return response()->json(['success' => false, 'message' => '用户名或密码必填！']);
-        }
-
-        if ($password != $check_password) {
-            return response()->json(['success' => false, 'message' => '两次密码输入不一致！']);
-        }
+        
         $user = User::where('name', $name)->first();
         if ($user) {
-            return response()->json(['success' => false, 'message' => '用户已被注册！']);
+            // return response()->json(['success' => false, 'message' => '用户已被注册！']);
+            return $this->failed('用户已被注册');
         }
 
         $password = Hash::make($password);
@@ -56,8 +49,7 @@ class UserController extends Controller
             'name' => $name,
             'password' => $password
         ]);
-
-        return response()->json(['success' => true, 'message' => '注册成功！', 'user' => $user]);
+        return $this->success($user);
     }
 
     /***
@@ -70,21 +62,27 @@ class UserController extends Controller
         $password = $request->password;
 
         if (!$name || !$password) {
-            return response()->json(['success' => false, 'message' => '用户名或密码填写错误！']);
+            // return response()->json(['success' => false, 'message' => '用户名或密码填写错误！']);
+            return $this->failed('用户名或密码填写错误');
         }
 
         $user = User::where('name', $name)->first();
         if (!$user) {
-            return response()->json(['success' => false, 'message' => '用户不存在！']);
+            // return response()->json(['success' => false, 'message' => '用户不存在！']);
+            // return $this->failed('用户不存在');
+            return $this->failed('用户名或密码错误');
+
         }
 
         if (!Hash::check($password, $user->password)) {
-            return response()->json(['success' => false, 'message' => '密码填写错误！']);
+            return $this->failed('用户名或密码错误');
+            // return response()->json(['success' => false, 'message' => '密码填写错误！']);
         }
 
         $credentials = request(['name', 'password']);
         if (!$token = auth('users')->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return $this->failed('用户名或密码错误');
+            // return response()->json(['error' => 'Unauthorized'], 401);
         }
         // 触发事件
         event(new LoginEvent($user));
@@ -103,8 +101,8 @@ class UserController extends Controller
     public function logout()
     {
         auth()->logout();
-
-        return response()->json(['message' => 'Successfully logged out']);
+        return $this->success('退出登录成功');
+        // return response()->json(['message' => 'Successfully logged out']);
     }
 
     /**
@@ -126,10 +124,11 @@ class UserController extends Controller
      */
     protected function respondWithToken($token)
     {
-        return response()->json([
+        return $this->success([
             'access_token' => $token,
             'token_type' => 'Bearer',
             'expires_in' => auth('users')->factory()->getTTL() * 60
         ]);
+        // return response()->json();
     }
 }

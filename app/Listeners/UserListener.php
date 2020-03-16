@@ -7,8 +7,15 @@ use Illuminate\Queue\InteractsWithQueue;
 use App\Events\LoginEvent;
 use Log;
 
-class UserListener
+class UserListener implements ShouldQueue
 {
+    /**
+     * 处理任务的延迟时间.
+     *
+     * @var int
+     */
+    public $delay = 60;
+    
     /**
      * Create the event listener.
      *
@@ -27,6 +34,6 @@ class UserListener
      */
     public function handle(LoginEvent $event)
     {
-        Log::info($event->user);
+        Log::info($event->user . 'event');
     }
 }

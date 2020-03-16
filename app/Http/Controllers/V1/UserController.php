@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Hash;
+use Log;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Requests\UserRequest;
 use App\Events\LoginEvent;
+use App\Jobs\UserTest;
 
 class UserController extends Controller
 {
@@ -84,7 +86,12 @@ class UserController extends Controller
         if (!$token = auth('users')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
+        // 触发事件
         event(new LoginEvent($user));
+
+        // 分发异步任务
+        UserTest::dispatch($user)
+            ->delay(now()->addSeconds(5));
         return $this->respondWithToken($token);
     }
 

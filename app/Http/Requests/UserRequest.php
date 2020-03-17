@@ -28,7 +28,11 @@ class UserRequest extends FormRequest
             ];
         }
         case 'PUT':
-        case 'PATCH':
+        case 'PATCH': {
+            return [
+                'name' => ['required', 'max:50'],
+            ];
+        }
         case 'DELETE':
         default:
         {

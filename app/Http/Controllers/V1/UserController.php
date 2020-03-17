@@ -11,6 +11,7 @@ use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Requests\UserRequest;
 use App\Events\LoginEvent;
 use App\Jobs\UserTest;
+use Auth;
 
 class UserController extends Controller
 {
@@ -28,11 +29,29 @@ class UserController extends Controller
         $users = QueryBuilder::for($query)
             ->allowedFields(['id', 'name'])
                   ->get();
-        return $this->success($users[0]);
+        if (count($users) > 0) {
+            return $this->success($users[0]);
+        } else {
+            return $this->failed('用户不存在', 404);
+        }
+        
     }
 
-    public function update(Request $request, $id) {
-        dd($id);
+    public function update(UserRequest $request, $id) {
+        if (auth('users')->user()->id !== intVal($id)) {
+            return $this->failed('只能修改自己的信息');
+        }
+        
+        $name = $request->name;
+        $user = User::where('name', $name)->first();
+        if ($user) {
+            return $this->failed('用户名已被占用');
+        }
+
+        $user = User::find($id);
+        $user->name = $name;
+        $user->save();
+        return $this->success('修改成功');
     }
     public function register(UserRequest $request) {
         $name = $request->name;
@@ -67,16 +86,8 @@ class UserController extends Controller
         }
 
         $user = User::where('name', $name)->first();
-        if (!$user) {
-            // return response()->json(['success' => false, 'message' => '用户不存在！']);
-            // return $this->failed('用户不存在');
+        if (!$user || !Hash::check($password, $user->password)) {
             return $this->failed('用户名或密码错误');
-
-        }
-
-        if (!Hash::check($password, $user->password)) {
-            return $this->failed('用户名或密码错误');
-            // return response()->json(['success' => false, 'message' => '密码填写错误！']);
         }
 
         $credentials = request(['name', 'password']);

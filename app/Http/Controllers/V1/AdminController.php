@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use Hash;
 
+use App\Http\Requests\UserRegistRequest;
+use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\UserLoginRequest;
+
 class AdminController extends Controller
 {
     public function __construct() {
@@ -15,21 +19,13 @@ class AdminController extends Controller
      * @group admins
      * admin user regist
      */
-    public function register(Request $request) {
+    public function register(UserRegistRequest $request) {
         $name = $request->name;
         $password = $request->password;
-        $check_password = $request->check_password;
-        // dd($password, $check_password);
-        if (!$password || !$name) {
-            return response()->json(['success' => false, 'message' => '用户名或密码必填！']);
-        }
 
-        if ($password != $check_password) {
-            return response()->json(['success' => false, 'message' => '两次密码输入不一致！']);
-        }
         $admin = Admin::where('name', $name)->first();
         if ($admin) {
-            return response()->json(['success' => false, 'message' => '用户已被注册！']);
+            return $this->failed('用户已被注册');
         }
 
         $password = Hash::make($password);
@@ -37,16 +33,16 @@ class AdminController extends Controller
             'name' => $name,
             'password' => $password
         ]);
+        return $this->success($admin);
 
-        return response()->json(['success' => true, 'message' => '注册成功！', 'admin' => $admin]);
     }
 
     /**
      * @group admins
      * admin user login
-     * @param Request $request
+     * @param UserLoginRequest $request
      */
-    public function login(Request $request)
+    public function login(UserLoginRequest $request)
     {
         $name = $request->name;
         $password = $request->password;
@@ -54,12 +50,12 @@ class AdminController extends Controller
 
         $admin = Admin::where('name', $name)->first();
         if (!$admin || !Hash::check($password, $admin->password)) {
-            return response()->json(['success' => false, 'message' => '用户名或密码错误']);
+            return $this->failed('用户名或密码错误');
         }
 
         $credentials = request(['name', 'password']);
         if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return $this->failed('用户名或密码错误');
         }
 
         return $this->respondWithToken($token);
@@ -74,8 +70,7 @@ class AdminController extends Controller
     public function logout()
     {
         auth()->logout();
-
-        return response()->json(['message' => '退出成功']);
+        return $this->success('退出登录成功');
     }
 
     /**
@@ -87,11 +82,11 @@ class AdminController extends Controller
      */
     protected function respondWithToken($token)
     {
-        return response()->json([
+        return $this->success([
             'access_token' => $token,
             'token_type' => 'Bearer',
             'expires_in' => auth()->factory()->getTTL()
-        ]);
+        ]);        
     }
 
 }

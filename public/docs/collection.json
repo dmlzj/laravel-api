@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "99115b3e-854f-4dc1-ad57-6392eed77ce0",
+        "_postman_id": "9cfe91bc-13ba-428f-9ef1-696b23e4cbb4",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -33,7 +33,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"name\": \"reiciendis\",\n    \"password\": \"aut\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -61,7 +61,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"name\": \"nisi\",\n    \"password\": \"fugiat\",\n    \"passwrod_confirmation\": \"est\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -123,7 +123,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"impedit\",\n    \"password\": \"officia\",\n    \"passwrod_confirmation\": \"dolor\"\n}"
+                            "raw": "{\n    \"name\": \"voluptas\",\n    \"password\": \"ducimus\",\n    \"passwrod_confirmation\": \"quaerat\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -151,7 +151,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"rerum\",\n    \"password\": \"et\"\n}"
+                            "raw": "{\n    \"name\": \"ut\",\n    \"password\": \"velit\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -271,7 +271,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"rerum\"\n}"
+                            "raw": "{\n    \"name\": \"aliquam\"\n}"
                         },
                         "description": "",
                         "response": []

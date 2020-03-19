@@ -24,7 +24,7 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', ['namespace' => 'App\Http\Controllers\V1', 'middleware'=> 'admin.guard'], function($api) {
     $api->post('admins/login', 'AdminController@login');
     // 需要登录才能访问的接口
-    $api->group(['middleware' => 'admin.refresh'], function($api) {
+    $api->group(['middleware' => 'auth.refresh'], function($api) {
         $api->post('admins/add', 'AdminController@register');
         $api->post('admins/logout', 'AdminController@logout');
     });
@@ -37,7 +37,7 @@ $api->version('v1', ['namespace' => 'App\Http\Controllers\V1', 'middleware' => '
     $api->post('users/register', 'UserController@register');
     $api->post('users/login', 'UserController@login');
     // 需要登录才能访问的接口
-    $api->group(['middleware' => 'user.refresh'], function($api) {
+    $api->group(['middleware' => 'auth.refresh'], function($api) {
         $api->get('users', 'UserController@index');
         $api->get('users/{id}', 'UserController@show');
         $api->post('users/logout', 'UserController@Logout');

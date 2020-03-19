@@ -122,7 +122,9 @@ class UserController extends Controller
         }
 
         $credentials = request(['name', 'password']);
-        if (!$token = auth()->attempt($credentials)) {
+        // 获取当前守护的名称
+        $present_guard =Auth::getDefaultDriver();
+        if (!$token = Auth::claims(['guard'=>$present_guard])->attempt($credentials)) {
             return $this->failed('用户名或密码错误');
             // return response()->json(['error' => 'Unauthorized'], 401);
         }

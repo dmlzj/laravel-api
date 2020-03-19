@@ -10,6 +10,7 @@ use Hash;
 use App\Http\Requests\UserRegistRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Http\Requests\UserLoginRequest;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -54,7 +55,9 @@ class AdminController extends Controller
         }
 
         $credentials = request(['name', 'password']);
-        if (!$token = auth()->attempt($credentials)) {
+        // 获取当前守护的名称
+        $present_guard =Auth::getDefaultDriver();
+        if (!$token = Auth::claims(['guard'=>$present_guard])->attempt($credentials)) {
             return $this->failed('用户名或密码错误');
         }
 

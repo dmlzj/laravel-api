@@ -8,21 +8,37 @@ use App\Models\User;
 use Hash;
 use Log;
 use Spatie\QueryBuilder\QueryBuilder;
-use App\Http\Requests\UserRequest;
+
+use App\Http\Requests\UserRegistRequest;
+use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\UserLoginRequest;
+
 use App\Events\LoginEvent;
 use App\Jobs\UserTest;
 use Auth;
 
 class UserController extends Controller
 {
+    /**
+     * @group users
+     * user list
+     */
     public function index() {
         $users = QueryBuilder::for(User::class)
-            ->allowedFilters('name')
+            ->allowedSorts('name', 'id', 'created_at', 'updated_at')
+                  ->defaultSort('-created_at')
+                  ->allowedFilters('name')
                   ->allowedFields(['id', 'name'])
-                  ->get()->toArray();
+                  ->paginate()
+                  ->appends(request()->query());
         return $this->success($users);
     }
-
+    /**
+     * @group users
+     * user info
+     * @urlParam id required 用户id Example: 1
+     * @apiResponse User
+     */
     public function show($id) {
         // return view('user.profile', ['user' => User::findOrFail($id)]);
         $query = User::where('id', $id);
@@ -36,8 +52,11 @@ class UserController extends Controller
         }
         
     }
-
-    public function update(UserRequest $request, $id) {
+    /**
+     * @group users
+     * user update
+     */
+    public function update(UserUpdateRequest $request, $id) {
         if (auth('users')->user()->id !== intVal($id)) {
             return $this->failed('只能修改自己的信息');
         }
@@ -53,7 +72,11 @@ class UserController extends Controller
         $user->save();
         return $this->success('修改成功');
     }
-    public function register(UserRequest $request) {
+    /**
+     * @group users
+     * user regist
+     */
+    public function register(UserRegistRequest $request) {
         $name = $request->name;
         $password = $request->password;
         
@@ -71,19 +94,24 @@ class UserController extends Controller
         return $this->success($user);
     }
 
-    /***
-     * 用户登录
-     * @param Request $request
+    /**
+     * @group users
+     * user login
+     * @param UserLoginRequest $request
+     * @response {
+     *"status": "success",
+     *"code": 200,
+     *"data": {
+     *"access_token": "vHuXHhe5sI",
+     *"token_type": "Bearer",
+     *"expires_in": 3600
+     *}
+     *}
      */
-    public function login(Request $request)
+    public function login(UserLoginRequest $request)
     {
         $name = $request->name;
         $password = $request->password;
-
-        if (!$name || !$password) {
-            // return response()->json(['success' => false, 'message' => '用户名或密码填写错误！']);
-            return $this->failed('用户名或密码填写错误');
-        }
 
         $user = User::where('name', $name)->first();
         if (!$user || !Hash::check($password, $user->password)) {
@@ -105,9 +133,8 @@ class UserController extends Controller
     }
 
     /**
-     * Log the user out (Invalidate the token).
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * @group users
+     * user logout
      */
     public function logout()
     {

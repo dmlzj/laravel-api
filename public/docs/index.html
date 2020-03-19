@@ -1,0 +1,808 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript","php","python"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                                  <a href="#" data-language-name="php">php</a>
+                                  <a href="#" data-language-name="python">python</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://api.xiaoyuan.com:8000/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>general</h1>
+<!-- START_bd02c278c12781fc073260f7086d7735 -->
+<h2>/api/admins/login</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://api.xiaoyuan.com:8000/api/admins/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.xiaoyuan.com:8000/api/admins/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://api.xiaoyuan.com:8000/api/admins/login',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://api.xiaoyuan.com:8000/api/admins/login'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/admins/login</code></p>
+<!-- END_bd02c278c12781fc073260f7086d7735 -->
+<!-- START_325c2a9b58dfb8e0b16b8e34aac5bb61 -->
+<h2>/api/admins/add</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://api.xiaoyuan.com:8000/api/admins/add" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.xiaoyuan.com:8000/api/admins/add"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://api.xiaoyuan.com:8000/api/admins/add',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://api.xiaoyuan.com:8000/api/admins/add'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/admins/add</code></p>
+<!-- END_325c2a9b58dfb8e0b16b8e34aac5bb61 -->
+<!-- START_5ff0fce2672dab8fdc2af433602d2de1 -->
+<h2>Log the admin out (Invalidate the token).</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://api.xiaoyuan.com:8000/api/admins/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.xiaoyuan.com:8000/api/admins/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://api.xiaoyuan.com:8000/api/admins/logout',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://api.xiaoyuan.com:8000/api/admins/logout'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/admins/logout</code></p>
+<!-- END_5ff0fce2672dab8fdc2af433602d2de1 -->
+<h1>users</h1>
+<!-- START_3675d11a1f098bdce761872198e00cda -->
+<h2>user regist</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://api.xiaoyuan.com:8000/api/users/register" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"distinctio","password":"labore","passwrod_confirmation":"sit"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.xiaoyuan.com:8000/api/users/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "distinctio",
+    "password": "labore",
+    "passwrod_confirmation": "sit"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://api.xiaoyuan.com:8000/api/users/register',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'distinctio',
+            'password' =&gt; 'labore',
+            'passwrod_confirmation' =&gt; 'sit',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://api.xiaoyuan.com:8000/api/users/register'
+payload = {
+    "name": "distinctio",
+    "password": "labore",
+    "passwrod_confirmation": "sit"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/users/register</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>required</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>required</td>
+<td>密码</td>
+</tr>
+<tr>
+<td><code>passwrod_confirmation</code></td>
+<td>string</td>
+<td>required</td>
+<td>确认密码</td>
+</tr>
+</tbody>
+</table>
+<!-- END_3675d11a1f098bdce761872198e00cda -->
+<!-- START_40f78369793b63e1e4be97209ef405c3 -->
+<h2>user login</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://api.xiaoyuan.com:8000/api/users/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"sed","password":"ut"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.xiaoyuan.com:8000/api/users/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "sed",
+    "password": "ut"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://api.xiaoyuan.com:8000/api/users/login',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'sed',
+            'password' =&gt; 'ut',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://api.xiaoyuan.com:8000/api/users/login'
+payload = {
+    "name": "sed",
+    "password": "ut"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "success",
+    "code": 200,
+    "data": {
+        "access_token": "vHuXHhe5sI",
+        "token_type": "Bearer",
+        "expires_in": 3600
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/users/login</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>required</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>required</td>
+<td>密码</td>
+</tr>
+</tbody>
+</table>
+<!-- END_40f78369793b63e1e4be97209ef405c3 -->
+<!-- START_511eeadfce956cbeea74ce3763392dcd -->
+<h2>user list</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.xiaoyuan.com:8000/api/users" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.xiaoyuan.com:8000/api/users"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.xiaoyuan.com:8000/api/users',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://api.xiaoyuan.com:8000/api/users'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Token not provided",
+    "status_code": 401,
+    "debug": {
+        "line": 52,
+        "file": "\/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/tymon\/jwt-auth\/src\/Http\/Middleware\/BaseMiddleware.php",
+        "class": "Symfony\\Component\\HttpKernel\\Exception\\UnauthorizedHttpException",
+        "trace": [
+            "#0 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/app\/Http\/Middleware\/RefreshUserTokenMiddleware.php(25): Tymon\\JWTAuth\\Http\\Middleware\\BaseMiddleware-&gt;checkForToken()",
+            "#1 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\RefreshUserTokenMiddleware-&gt;handle()",
+            "#2 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/app\/Http\/Middleware\/UserGuardMiddleware.php(19): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#3 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\UserGuardMiddleware-&gt;handle()",
+            "#4 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/dingo\/api\/src\/Http\/Middleware\/PrepareController.php(45): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#5 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Dingo\\Api\\Http\\Middleware\\PrepareController-&gt;handle()",
+            "#6 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#7 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(683): Illuminate\\Pipeline\\Pipeline-&gt;then()",
+            "#8 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(658): Illuminate\\Routing\\Router-&gt;runRouteWithinStack()",
+            "#9 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(624): Illuminate\\Routing\\Router-&gt;runRoute()",
+            "#10 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(613): Illuminate\\Routing\\Router-&gt;dispatchToRoute()",
+            "#11 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/dingo\/api\/src\/Routing\/Adapter\/Laravel.php(88): Illuminate\\Routing\\Router-&gt;dispatch()",
+            "#12 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/dingo\/api\/src\/Routing\/Router.php(518): Dingo\\Api\\Routing\\Adapter\\Laravel-&gt;dispatch()",
+            "#13 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/dingo\/api\/src\/Http\/Middleware\/Request.php(126): Dingo\\Api\\Routing\\Router-&gt;dispatch()",
+            "#14 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(130): Dingo\\Api\\Http\\Middleware\\Request-&gt;Dingo\\Api\\Http\\Middleware\\{closure}()",
+            "#15 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#16 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest-&gt;handle()",
+            "#17 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#18 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest-&gt;handle()",
+            "#19 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#20 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize-&gt;handle()",
+            "#21 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php(63): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#22 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode-&gt;handle()",
+            "#23 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/fideloper\/proxy\/src\/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#24 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Fideloper\\Proxy\\TrustProxies-&gt;handle()",
+            "#25 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#26 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/dingo\/api\/src\/Http\/Middleware\/Request.php(127): Illuminate\\Pipeline\\Pipeline-&gt;then()",
+            "#27 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/dingo\/api\/src\/Http\/Middleware\/Request.php(103): Dingo\\Api\\Http\\Middleware\\Request-&gt;sendRequestThroughRouter()",
+            "#28 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Dingo\\Api\\Http\\Middleware\\Request-&gt;handle()",
+            "#29 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#30 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(145): Illuminate\\Pipeline\\Pipeline-&gt;then()",
+            "#31 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel-&gt;sendRequestThroughRouter()",
+            "#32 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(307): Illuminate\\Foundation\\Http\\Kernel-&gt;handle()",
+            "#33 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(289): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;callLaravelRoute()",
+            "#34 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(47): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;makeApiCall()",
+            "#35 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(172): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;__invoke()",
+            "#36 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(121): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;iterateThroughStrategies()",
+            "#37 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(84): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;fetchResponses()",
+            "#38 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(125): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;processRoute()",
+            "#39 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(69): Mpociot\\ApiDoc\\Commands\\GenerateDocumentation-&gt;processRoutes()",
+            "#40 [internal function]: Mpociot\\ApiDoc\\Commands\\GenerateDocumentation-&gt;handle()",
+            "#41 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(32): call_user_func_array()",
+            "#42 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php(36): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()",
+            "#43 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure()",
+            "#44 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod()",
+            "#45 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php(590): Illuminate\\Container\\BoundMethod::call()",
+            "#46 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(134): Illuminate\\Container\\Container-&gt;call()",
+            "#47 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/symfony\/console\/Command\/Command.php(255): Illuminate\\Console\\Command-&gt;execute()",
+            "#48 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(121): Symfony\\Component\\Console\\Command\\Command-&gt;run()",
+            "#49 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/symfony\/console\/Application.php(1001): Illuminate\\Console\\Command-&gt;run()",
+            "#50 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/symfony\/console\/Application.php(271): Symfony\\Component\\Console\\Application-&gt;doRunCommand()",
+            "#51 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/symfony\/console\/Application.php(147): Symfony\\Component\\Console\\Application-&gt;doRun()",
+            "#52 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php(93): Symfony\\Component\\Console\\Application-&gt;run()",
+            "#53 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php(131): Illuminate\\Console\\Application-&gt;run()",
+            "#54 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/artisan(37): Illuminate\\Foundation\\Console\\Kernel-&gt;handle()",
+            "#55 {main}"
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /api/users</code></p>
+<!-- END_511eeadfce956cbeea74ce3763392dcd -->
+<!-- START_b1f8ce5c516b48f856fb396b04dfd494 -->
+<h2>user info</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.xiaoyuan.com:8000/api/users/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.xiaoyuan.com:8000/api/users/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.xiaoyuan.com:8000/api/users/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://api.xiaoyuan.com:8000/api/users/1'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Token not provided",
+    "status_code": 401,
+    "debug": {
+        "line": 52,
+        "file": "\/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/tymon\/jwt-auth\/src\/Http\/Middleware\/BaseMiddleware.php",
+        "class": "Symfony\\Component\\HttpKernel\\Exception\\UnauthorizedHttpException",
+        "trace": [
+            "#0 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/app\/Http\/Middleware\/RefreshUserTokenMiddleware.php(25): Tymon\\JWTAuth\\Http\\Middleware\\BaseMiddleware-&gt;checkForToken()",
+            "#1 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\RefreshUserTokenMiddleware-&gt;handle()",
+            "#2 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/app\/Http\/Middleware\/UserGuardMiddleware.php(19): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#3 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): App\\Http\\Middleware\\UserGuardMiddleware-&gt;handle()",
+            "#4 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/dingo\/api\/src\/Http\/Middleware\/PrepareController.php(45): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#5 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Dingo\\Api\\Http\\Middleware\\PrepareController-&gt;handle()",
+            "#6 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#7 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(683): Illuminate\\Pipeline\\Pipeline-&gt;then()",
+            "#8 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(658): Illuminate\\Routing\\Router-&gt;runRouteWithinStack()",
+            "#9 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(624): Illuminate\\Routing\\Router-&gt;runRoute()",
+            "#10 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php(613): Illuminate\\Routing\\Router-&gt;dispatchToRoute()",
+            "#11 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/dingo\/api\/src\/Routing\/Adapter\/Laravel.php(88): Illuminate\\Routing\\Router-&gt;dispatch()",
+            "#12 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/dingo\/api\/src\/Routing\/Router.php(518): Dingo\\Api\\Routing\\Adapter\\Laravel-&gt;dispatch()",
+            "#13 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/dingo\/api\/src\/Http\/Middleware\/Request.php(126): Dingo\\Api\\Routing\\Router-&gt;dispatch()",
+            "#14 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(130): Dingo\\Api\\Http\\Middleware\\Request-&gt;Dingo\\Api\\Http\\Middleware\\{closure}()",
+            "#15 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#16 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest-&gt;handle()",
+            "#17 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#18 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest-&gt;handle()",
+            "#19 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#20 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize-&gt;handle()",
+            "#21 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php(63): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#22 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode-&gt;handle()",
+            "#23 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/fideloper\/proxy\/src\/TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#24 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Fideloper\\Proxy\\TrustProxies-&gt;handle()",
+            "#25 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#26 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/dingo\/api\/src\/Http\/Middleware\/Request.php(127): Illuminate\\Pipeline\\Pipeline-&gt;then()",
+            "#27 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/dingo\/api\/src\/Http\/Middleware\/Request.php(103): Dingo\\Api\\Http\\Middleware\\Request-&gt;sendRequestThroughRouter()",
+            "#28 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(171): Dingo\\Api\\Http\\Middleware\\Request-&gt;handle()",
+            "#29 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline-&gt;Illuminate\\Pipeline\\{closure}()",
+            "#30 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(145): Illuminate\\Pipeline\\Pipeline-&gt;then()",
+            "#31 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel-&gt;sendRequestThroughRouter()",
+            "#32 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(307): Illuminate\\Foundation\\Http\\Kernel-&gt;handle()",
+            "#33 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(289): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;callLaravelRoute()",
+            "#34 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php(47): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;makeApiCall()",
+            "#35 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(172): Mpociot\\ApiDoc\\Extracting\\Strategies\\Responses\\ResponseCalls-&gt;__invoke()",
+            "#36 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(121): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;iterateThroughStrategies()",
+            "#37 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Extracting\/Generator.php(84): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;fetchResponses()",
+            "#38 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(125): Mpociot\\ApiDoc\\Extracting\\Generator-&gt;processRoute()",
+            "#39 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php(69): Mpociot\\ApiDoc\\Commands\\GenerateDocumentation-&gt;processRoutes()",
+            "#40 [internal function]: Mpociot\\ApiDoc\\Commands\\GenerateDocumentation-&gt;handle()",
+            "#41 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(32): call_user_func_array()",
+            "#42 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php(36): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()",
+            "#43 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure()",
+            "#44 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod()",
+            "#45 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php(590): Illuminate\\Container\\BoundMethod::call()",
+            "#46 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(134): Illuminate\\Container\\Container-&gt;call()",
+            "#47 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/symfony\/console\/Command\/Command.php(255): Illuminate\\Console\\Command-&gt;execute()",
+            "#48 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php(121): Symfony\\Component\\Console\\Command\\Command-&gt;run()",
+            "#49 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/symfony\/console\/Application.php(1001): Illuminate\\Console\\Command-&gt;run()",
+            "#50 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/symfony\/console\/Application.php(271): Symfony\\Component\\Console\\Application-&gt;doRunCommand()",
+            "#51 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/symfony\/console\/Application.php(147): Symfony\\Component\\Console\\Application-&gt;doRun()",
+            "#52 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php(93): Symfony\\Component\\Console\\Application-&gt;run()",
+            "#53 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php(131): Illuminate\\Console\\Application-&gt;run()",
+            "#54 \/home\/dmlzj\/www\/php\/xiaoyuan-api\/artisan(37): Illuminate\\Foundation\\Console\\Kernel-&gt;handle()",
+            "#55 {main}"
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /api/users/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>required</td>
+<td>用户id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b1f8ce5c516b48f856fb396b04dfd494 -->
+<!-- START_09482c8a4f504960d8e8334afd7777c1 -->
+<h2>user logout</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://api.xiaoyuan.com:8000/api/users/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.xiaoyuan.com:8000/api/users/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://api.xiaoyuan.com:8000/api/users/logout',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://api.xiaoyuan.com:8000/api/users/logout'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/users/logout</code></p>
+<!-- END_09482c8a4f504960d8e8334afd7777c1 -->
+<!-- START_a1145ee4137eee200fc33e5fafdeb415 -->
+<h2>user update</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PATCH \
+    "http://api.xiaoyuan.com:8000/api/users/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"repellat"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.xiaoyuan.com:8000/api/users/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "repellat"
+}
+
+fetch(url, {
+    method: "PATCH",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;patch(
+    'http://api.xiaoyuan.com:8000/api/users/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'repellat',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://api.xiaoyuan.com:8000/api/users/1'
+payload = {
+    "name": "repellat"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+response = requests.request('PATCH', url, headers=headers, json=payload)
+response.json()</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PATCH /api/users/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>required</td>
+<td>用户名</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a1145ee4137eee200fc33e5fafdeb415 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                                    <a href="#" data-language-name="php">php</a>
+                                    <a href="#" data-language-name="python">python</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>

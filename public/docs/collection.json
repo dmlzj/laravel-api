@@ -2,17 +2,17 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "60eccefb-c7fb-49d6-bc62-083bf2cbbd71",
+        "_postman_id": "99115b3e-854f-4dc1-ad57-6392eed77ce0",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
     "item": [
         {
-            "name": "general",
+            "name": "admins",
             "description": "",
             "item": [
                 {
-                    "name": "\/api\/admins\/login",
+                    "name": "admin user login",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -40,7 +40,7 @@
                     }
                 },
                 {
-                    "name": "\/api\/admins\/add",
+                    "name": "admin user regist",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -68,7 +68,7 @@
                     }
                 },
                 {
-                    "name": "Log the admin out (Invalidate the token).",
+                    "name": "admin user logout",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -123,7 +123,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"distinctio\",\n    \"password\": \"labore\",\n    \"passwrod_confirmation\": \"sit\"\n}"
+                            "raw": "{\n    \"name\": \"impedit\",\n    \"password\": \"officia\",\n    \"passwrod_confirmation\": \"dolor\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -151,7 +151,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"sed\",\n    \"password\": \"ut\"\n}"
+                            "raw": "{\n    \"name\": \"rerum\",\n    \"password\": \"et\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -271,7 +271,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"repellat\"\n}"
+                            "raw": "{\n    \"name\": \"rerum\"\n}"
                         },
                         "description": "",
                         "response": []

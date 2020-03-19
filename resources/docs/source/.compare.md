@@ -22,11 +22,12 @@ Welcome to the generated API reference.
 
 <!-- END_INFO -->
 
-#general
+#admins
 
 
 <!-- START_bd02c278c12781fc073260f7086d7735 -->
-## /api/admins/login
+## admin user login
+
 > Example request:
 
 ```bash
@@ -92,7 +93,8 @@ response.json()
 <!-- END_bd02c278c12781fc073260f7086d7735 -->
 
 <!-- START_325c2a9b58dfb8e0b16b8e34aac5bb61 -->
-## /api/admins/add
+## admin user regist
+
 > Example request:
 
 ```bash
@@ -158,7 +160,7 @@ response.json()
 <!-- END_325c2a9b58dfb8e0b16b8e34aac5bb61 -->
 
 <!-- START_5ff0fce2672dab8fdc2af433602d2de1 -->
-## Log the admin out (Invalidate the token).
+## admin user logout
 
 > Example request:
 
@@ -237,7 +239,7 @@ curl -X POST \
     "http://api.xiaoyuan.com:8000/api/users/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"distinctio","password":"labore","passwrod_confirmation":"sit"}'
+    -d '{"name":"impedit","password":"officia","passwrod_confirmation":"dolor"}'
 
 ```
 
@@ -252,9 +254,9 @@ let headers = {
 };
 
 let body = {
-    "name": "distinctio",
-    "password": "labore",
-    "passwrod_confirmation": "sit"
+    "name": "impedit",
+    "password": "officia",
+    "passwrod_confirmation": "dolor"
 }
 
 fetch(url, {
@@ -277,9 +279,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'name' => 'distinctio',
-            'password' => 'labore',
-            'passwrod_confirmation' => 'sit',
+            'name' => 'impedit',
+            'password' => 'officia',
+            'passwrod_confirmation' => 'dolor',
         ],
     ]
 );
@@ -293,9 +295,9 @@ import json
 
 url = 'http://api.xiaoyuan.com:8000/api/users/register'
 payload = {
-    "name": "distinctio",
-    "password": "labore",
-    "passwrod_confirmation": "sit"
+    "name": "impedit",
+    "password": "officia",
+    "passwrod_confirmation": "dolor"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -329,7 +331,7 @@ curl -X POST \
     "http://api.xiaoyuan.com:8000/api/users/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"sed","password":"ut"}'
+    -d '{"name":"rerum","password":"et"}'
 
 ```
 
@@ -344,8 +346,8 @@ let headers = {
 };
 
 let body = {
-    "name": "sed",
-    "password": "ut"
+    "name": "rerum",
+    "password": "et"
 }
 
 fetch(url, {
@@ -368,8 +370,8 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'name' => 'sed',
-            'password' => 'ut',
+            'name' => 'rerum',
+            'password' => 'et',
         ],
     ]
 );
@@ -383,8 +385,8 @@ import json
 
 url = 'http://api.xiaoyuan.com:8000/api/users/login'
 payload = {
-    "name": "sed",
-    "password": "ut"
+    "name": "rerum",
+    "password": "et"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -778,7 +780,7 @@ curl -X PATCH \
     "http://api.xiaoyuan.com:8000/api/users/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"repellat"}'
+    -d '{"name":"rerum"}'
 
 ```
 
@@ -793,7 +795,7 @@ let headers = {
 };
 
 let body = {
-    "name": "repellat"
+    "name": "rerum"
 }
 
 fetch(url, {
@@ -816,7 +818,7 @@ $response = $client->patch(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'name' => 'repellat',
+            'name' => 'rerum',
         ],
     ]
 );
@@ -830,7 +832,7 @@ import json
 
 url = 'http://api.xiaoyuan.com:8000/api/users/1'
 payload = {
-    "name": "repellat"
+    "name": "rerum"
 }
 headers = {
   'Content-Type': 'application/json',

@@ -11,7 +11,10 @@ class AdminController extends Controller
 {
     public function __construct() {
     }
-
+    /**
+     * @group admins
+     * admin user regist
+     */
     public function register(Request $request) {
         $name = $request->name;
         $password = $request->password;
@@ -38,8 +41,9 @@ class AdminController extends Controller
         return response()->json(['success' => true, 'message' => '注册成功！', 'admin' => $admin]);
     }
 
-    /***
-     * 后台管理员登录
+    /**
+     * @group admins
+     * admin user login
      * @param Request $request
      */
     public function login(Request $request)
@@ -47,21 +51,14 @@ class AdminController extends Controller
         $name = $request->name;
         $password = $request->password;
 
-        if (!$name || !$password) {
-            return response()->json(['success' => false, 'message' => '用户名或密码填写错误！']);
-        }
 
         $admin = Admin::where('name', $name)->first();
-        if (!$admin) {
-            return response()->json(['success' => false, 'message' => '用户不存在！']);
-        }
-
-        if (!Hash::check($password, $admin->password)) {
-            return response()->json(['success' => false, 'message' => '密码填写错误！']);
+        if (!$admin || !Hash::check($password, $admin->password)) {
+            return response()->json(['success' => false, 'message' => '用户名或密码错误']);
         }
 
         $credentials = request(['name', 'password']);
-        if (!$token = auth('admins')->attempt($credentials)) {
+        if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
@@ -69,7 +66,8 @@ class AdminController extends Controller
     }
 
     /**
-     * Log the admin out (Invalidate the token).
+     * @group admins
+     * admin user logout
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -77,17 +75,7 @@ class AdminController extends Controller
     {
         auth()->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
-    }
-
-    /**
-     * Refresh a token.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function refresh()
-    {
-        return $this->respondWithToken(auth('admins')->refresh());
+        return response()->json(['message' => '退出成功']);
     }
 
     /**
@@ -102,7 +90,7 @@ class AdminController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'Bearer',
-            'expires_in' => auth('admins')->factory()->getTTL() * 60
+            'expires_in' => auth()->factory()->getTTL()
         ]);
     }
 

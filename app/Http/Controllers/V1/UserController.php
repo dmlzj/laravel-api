@@ -41,6 +41,9 @@ class UserController extends Controller
      */
     public function show($id) {
         // return view('user.profile', ['user' => User::findOrFail($id)]);
+        if (auth()->user()->id !== intVal($id)) {
+            return $this->failed('抱歉您没有权限', 401);
+        }
         $query = User::where('id', $id);
         $users = QueryBuilder::for($query)
             ->allowedFields(['id', 'name'])
@@ -57,8 +60,8 @@ class UserController extends Controller
      * user update
      */
     public function update(UserUpdateRequest $request, $id) {
-        if (auth('users')->user()->id !== intVal($id)) {
-            return $this->failed('只能修改自己的信息');
+        if (auth()->user()->id !== intVal($id)) {
+            return $this->failed('抱歉您没有权限', 401);
         }
         
         $name = $request->name;
@@ -119,7 +122,7 @@ class UserController extends Controller
         }
 
         $credentials = request(['name', 'password']);
-        if (!$token = auth('users')->attempt($credentials)) {
+        if (!$token = auth()->attempt($credentials)) {
             return $this->failed('用户名或密码错误');
             // return response()->json(['error' => 'Unauthorized'], 401);
         }
@@ -143,15 +146,6 @@ class UserController extends Controller
         // return response()->json(['message' => 'Successfully logged out']);
     }
 
-    /**
-     * Refresh a token.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function refresh()
-    {
-        return $this->respondWithToken(auth('users')->refresh());
-    }
 
     /**
      * Get the token array structure.
@@ -165,7 +159,7 @@ class UserController extends Controller
         return $this->success([
             'access_token' => $token,
             'token_type' => 'Bearer',
-            'expires_in' => auth('users')->factory()->getTTL() * 60
+            'expires_in' => auth()->factory()->getTTL()
         ]);
         // return response()->json();
     }

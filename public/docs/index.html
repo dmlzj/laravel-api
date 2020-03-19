@@ -50,9 +50,9 @@
 <p>Welcome to the generated API reference.
 <a href="http://api.xiaoyuan.com:8000/docs/collection.json">Get Postman Collection</a></p>
 <!-- END_INFO -->
-<h1>general</h1>
+<h1>admins</h1>
 <!-- START_bd02c278c12781fc073260f7086d7735 -->
-<h2>/api/admins/login</h2>
+<h2>admin user login</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -102,7 +102,7 @@ response.json()</code></pre>
 <p><code>POST /api/admins/login</code></p>
 <!-- END_bd02c278c12781fc073260f7086d7735 -->
 <!-- START_325c2a9b58dfb8e0b16b8e34aac5bb61 -->
-<h2>/api/admins/add</h2>
+<h2>admin user regist</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -152,7 +152,7 @@ response.json()</code></pre>
 <p><code>POST /api/admins/add</code></p>
 <!-- END_325c2a9b58dfb8e0b16b8e34aac5bb61 -->
 <!-- START_5ff0fce2672dab8fdc2af433602d2de1 -->
-<h2>Log the admin out (Invalidate the token).</h2>
+<h2>admin user logout</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -211,7 +211,7 @@ response.json()</code></pre>
     "http://api.xiaoyuan.com:8000/api/users/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"distinctio","password":"labore","passwrod_confirmation":"sit"}'
+    -d '{"name":"impedit","password":"officia","passwrod_confirmation":"dolor"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://api.xiaoyuan.com:8000/api/users/register"
@@ -223,9 +223,9 @@ let headers = {
 };
 
 let body = {
-    "name": "distinctio",
-    "password": "labore",
-    "passwrod_confirmation": "sit"
+    "name": "impedit",
+    "password": "officia",
+    "passwrod_confirmation": "dolor"
 }
 
 fetch(url, {
@@ -245,9 +245,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'distinctio',
-            'password' =&gt; 'labore',
-            'passwrod_confirmation' =&gt; 'sit',
+            'name' =&gt; 'impedit',
+            'password' =&gt; 'officia',
+            'passwrod_confirmation' =&gt; 'dolor',
         ],
     ]
 );
@@ -258,9 +258,9 @@ import json
 
 url = 'http://api.xiaoyuan.com:8000/api/users/register'
 payload = {
-    "name": "distinctio",
-    "password": "labore",
-    "passwrod_confirmation": "sit"
+    "name": "impedit",
+    "password": "officia",
+    "passwrod_confirmation": "dolor"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -311,7 +311,7 @@ response.json()</code></pre>
     "http://api.xiaoyuan.com:8000/api/users/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"sed","password":"ut"}'
+    -d '{"name":"rerum","password":"et"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://api.xiaoyuan.com:8000/api/users/login"
@@ -323,8 +323,8 @@ let headers = {
 };
 
 let body = {
-    "name": "sed",
-    "password": "ut"
+    "name": "rerum",
+    "password": "et"
 }
 
 fetch(url, {
@@ -344,8 +344,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'sed',
-            'password' =&gt; 'ut',
+            'name' =&gt; 'rerum',
+            'password' =&gt; 'et',
         ],
     ]
 );
@@ -356,8 +356,8 @@ import json
 
 url = 'http://api.xiaoyuan.com:8000/api/users/login'
 payload = {
-    "name": "sed",
-    "password": "ut"
+    "name": "rerum",
+    "password": "et"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -721,7 +721,7 @@ response.json()</code></pre>
     "http://api.xiaoyuan.com:8000/api/users/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"repellat"}'
+    -d '{"name":"rerum"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://api.xiaoyuan.com:8000/api/users/1"
@@ -733,7 +733,7 @@ let headers = {
 };
 
 let body = {
-    "name": "repellat"
+    "name": "rerum"
 }
 
 fetch(url, {
@@ -753,7 +753,7 @@ $response = $client-&gt;patch(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'repellat',
+            'name' =&gt; 'rerum',
         ],
     ]
 );
@@ -764,7 +764,7 @@ import json
 
 url = 'http://api.xiaoyuan.com:8000/api/users/1'
 payload = {
-    "name": "repellat"
+    "name": "rerum"
 }
 headers = {
   'Content-Type': 'application/json',

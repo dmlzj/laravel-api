@@ -1,6 +1,7 @@
 * Laravel api整理
 ** jwt多用户配置
-- 可以实现多用户登录验证
+- 实现多用户登录验证
+- 前端接收到数据后判断返回的header里面是否带有Authentication字段,有代表token过期了,要把这个字段的值更新到本地token中
 ** dingo api配置
 - 方便控制版本
 ** 事件系统
@@ -8,6 +9,7 @@
 - 可以通过事件队列实现异步执行
 ** 队列
 - 队列是异步的
+
 - 队列任务监听服务管理命令,将下面命令放到supervisor配置文件中(/etc/supervisor/conf.d/),命名为laravel-work.conf
 #+BEGIN_SRC shell
 [program:laravel-worker]
@@ -20,12 +22,11 @@ numprocs=8
 redirect_stderr=true
 stdout_logfile=/home/dmlzj/www/php/xiaoyuan-api/worker.log
 #+END_SRC
+
 - supervisor启动进程命令,如果文件变动影响队列任务,那么需要重启它:
 #+BEGIN_SRC SHELL
-
 sudo supervisorctl reread
 sudo supervisorctl update
 sudo supervisorctl start laravel-worker:*
-
 sudo supervisorctl restart laravel-worker:*
 #+END_SRC

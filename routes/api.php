@@ -36,9 +36,10 @@ $api->version('v1', ['namespace' => 'App\Http\Controllers\V1', 'middleware' => '
 ], function($api) {
     $api->post('users/register', 'UserController@register');
     $api->post('users/login', 'UserController@login');
+    $api->get('users', 'UserController@index');
+
     // 需要登录才能访问的接口
     $api->group(['middleware' => 'auth.refresh'], function($api) {
-        $api->get('users', 'UserController@index');
         $api->get('users/{id}', 'UserController@show');
         $api->post('users/logout', 'UserController@Logout');
         $api->patch('users/{id}', 'UserController@update');

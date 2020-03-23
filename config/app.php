@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Unlu\Laravel\Api\ApiQueryBuilderServiceProvider::class,
     ],
 
     /*

@@ -7,11 +7,14 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Hash;
 use Log;
-use Spatie\QueryBuilder\QueryBuilder;
-
+// use Spatie\QueryBuilder\QueryBuilder;
+use Unlu\Laravel\Api\QueryBuilder;
+use Unlu\Laravel\Api\RequestCreator;
 use App\Http\Requests\UserRegistRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Http\Requests\UserLoginRequest;
+use App\Http\Requests\ListRequest;
+
 
 use App\Events\LoginEvent;
 use App\Jobs\UserTest;
@@ -22,15 +25,11 @@ class UserController extends Controller
     /**
      * @group users
      * user list
+     * @param ListRequest $request
      */
-    public function index() {
-        $users = QueryBuilder::for(User::class)
-            ->allowedSorts('name', 'id', 'created_at', 'updated_at')
-                  ->defaultSort('-created_at')
-                  ->allowedFilters('name')
-                  ->allowedFields(['id', 'name'])
-                  ->paginate()
-                  ->appends(request()->query());
+    public function index(ListRequest $request) {
+         $queryBuilder = new QueryBuilder(new User, $request);
+         $users =  $queryBuilder->build()->paginate();
         return $this->success($users);
     }
     /**
@@ -39,20 +38,15 @@ class UserController extends Controller
      * @urlParam id required 用户id Example: 1
      * @apiResponse User
      */
-    public function show($id) {
-        // return view('user.profile', ['user' => User::findOrFail($id)]);
-        if (auth()->user()->id !== intVal($id)) {
-            return $this->failed('抱歉您没有权限', 401);
+    public function show($id, Request $request) {
+        $params['id'] = $id;
+        if ($request->columns) {
+            $params['columns'] = $request->columns;
         }
-        $query = User::where('id', $id);
-        $users = QueryBuilder::for($query)
-            ->allowedFields(['id', 'name'])
-                  ->get();
-        if (count($users) > 0) {
-            return $this->success($users[0]);
-        } else {
-            return $this->failed('用户不存在', 404);
-        }
+        $request = RequestCreator::createWithParameters($params);        
+        $queryBuilder = new QueryBuilder(new User, $request);
+        $data = $queryBuilder->build()->firstOrFail();
+        return $this->success($data);
         
     }
     /**
